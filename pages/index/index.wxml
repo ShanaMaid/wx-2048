@@ -1,0 +1,26 @@
+<view class="section__title">
+  微信小程序-2048</view>
+<view>作者：ShanaMaid</view>
+<view>GithubID:ShanaMaid</view>
+<view class="score">
+  <view class="current">当前分数：</view>
+  <view class="top">最高分数:</view>
+</view>
+<scroll-view class="game-box" bindtouchstart="scrollstart" bindtouchend="scrollend">
+  <view class="item-2">{{item[0]}}</view>
+  <view class="item-4">{{item[1]}}</view>
+  <view class="item-8">{{item[2]}}</view>
+  <view class="item-2">{{item[3]}}</view>
+  <view class="item-4">{{item[4]}}</view>
+  <view class="item-8">{{item[5]}}</view>
+  <view class="item-2">{{item[6]}}</view>
+  <view class="item-4">{{item[7]}}</view>
+  <view class="item-2048">{{item[8]}}</view>
+  <view class="item-1024">{{item[9]}}</view>
+  <view class="item-16">{{item[10]}}</view>
+  <view class="item-32">{{item[11]}}</view>
+  <view class="item-64">{{item[12]}}</view>
+  <view class="item-128">{{item[13]}}</view>
+  <view class="item-256">{{item[14]}}</view>
+  <view class="item-512">{{item[15]}}</view>
+</scroll-view>

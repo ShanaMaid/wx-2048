@@ -1,0 +1,86 @@
+page{
+  background-image: url('');
+  font-family: microsoft yahei;
+}
+
+.game-box view{
+  float: left;
+  width: 25%;
+  text-align: center;
+  color: white;
+  height: 70px;
+  line-height: 60px;
+  border: 5px solid #b4a597;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+
+.game-box{
+  border: 5px solid #b4a597;
+  font-size: 0;
+  font-weight: bold;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.score{
+  margin: 10px 0;
+}
+
+.current,.top{
+  display: inline-block;
+  border-radius: 5px;
+  width: 50%;
+  height: 50px;
+  line-height: 50px;
+  color: white;
+  font-weight: bold;
+  box-sizing: border-box;
+  background-color: #cec3b5;
+}
+
+
+
+.item-2{
+  background-color:#f0e3db;
+}
+
+.item-4{
+  background-color:#ede1c7;
+}
+
+.item-8{
+  background-color:#f2b177;
+}
+
+.item-16{
+  background-color:#f59563;
+}
+
+.item-32{
+  background-color:#fa7a5d;
+}
+
+.item-64{
+  background-color:#ee5b3f ;
+}
+
+.item-128{
+  background-color:#edce71;
+}
+
+.item-256{
+  background-color:#f6d04e ;
+}
+
+.item-512{
+  background-color:#fefcc0;
+}
+
+.item-1024{
+  background-color:#e1ae1a;
+}
+
+.item-2048{
+  background-color:#edc50b ;
+}
