@@ -3,7 +3,7 @@
 <view>作者：ShanaMaid</view>
 <view>GithubID:ShanaMaid</view>
 <view class="score">
-  <view class="current">当前分数：</view>
+  <view class="current">当前分数：{{current}}</view>
   <view class="top">最高分数:</view>
 </view>
 <scroll-view class="game-box" bindtouchstart="scrollstart" bindtouchend="scrollend">
