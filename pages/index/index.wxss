@@ -39,48 +39,50 @@ page{
   background-color: #cec3b5;
 }
 
+.item{
+  background-color: #edc50b;
+}
 
-
-.item-2{
+.item2{
   background-color:#f0e3db;
 }
 
-.item-4{
+.item4{
   background-color:#ede1c7;
 }
 
-.item-8{
+.item8{
   background-color:#f2b177;
 }
 
-.item-16{
+.item16{
   background-color:#f59563;
 }
 
-.item-32{
+.item32{
   background-color:#fa7a5d;
 }
 
-.item-64{
+.item64{
   background-color:#ee5b3f ;
 }
 
-.item-128{
+.item128{
   background-color:#edce71;
 }
 
-.item-256{
+.item256{
   background-color:#f6d04e ;
 }
 
-.item-512{
+.item512{
   background-color:#fefcc0;
 }
 
-.item-1024{
+.item1024{
   background-color:#e1ae1a;
 }
 
-.item-2048{
+.item2048{
   background-color:#edc50b ;
 }

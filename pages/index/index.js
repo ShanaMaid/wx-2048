@@ -55,35 +55,16 @@ Page({
 
     switch (direction) {
       case 'up':
-        for (let i = 4; i < item.length; i++)
-          if(item[i]!='')
-            for(let j=i-4;j>=0;j-=4)
-            item[j]==''?(item[j]=item[j+4])&&(item[j+4]=''):-1
-        
+        up()
         break
       case 'down':
-        for (let i = 11; i >=0; i--)
-          if(item[i]!='')
-            for(let j=i+4;j<16;j+=4)
-            item[j]==''?(item[j]=item[j-4])&&(item[j-4]=''):-1
+        down()
         break
       case 'left':
-        for (let i = 2; i <16; i++){
-          if(item[i]!='')
-            for(let j=i-1;j>=Math.floor(i/4)*4;j--)
-            item[j]==''?(item[j]=item[j+1])&&(item[j+1]=''):-1
-          i%4==3?i++:-1
-        }
-
+        left()
         break
       case 'right':
-        for (let i = 14; i >0; i--){
-          if(item[i]!='')
-            for(let j=i+1;j<(Math.floor(i/4)+1)*4;j++)
-            item[j]==''?(item[j]=item[j-1])&&(item[j-1]=''):-1
-          i%4==0?i--:-1
-        }
-
+       right()
         break
     }
 
@@ -103,7 +84,6 @@ Page({
       }
     }
 
-
     //刷新视图数据
     this.setData({
       item: item,
@@ -112,8 +92,111 @@ Page({
   },
 })
 
-function getGesture(pos) {
+function up() {
+  //整理积分块位置
+  for (let i = 4; i < item.length; i++)
+          if(item[i]!='')
+            for(let j=i-4;j>=0;j-=4)
+            item[j]==''?(item[j]=item[j+4])&&(item[j+4]=''):-1
+//合并积分块
+        for(let i=0;i<4;i++)
+          for(let j=0;j<4;j++){
+            if(item[i+j*4]==''||item[i+(j+1)*4]=='')
+            break;
+            if(item[i+j*4]==item[i+(j+1)*4]){
+              item[i+j*4]+=item[i+(j+1)*4]
+              item[i+(j+1)*4]=''
+              j++
+            }
+          }
+//再次整理积分块位置
+        for (let i = 4; i < item.length; i++)
+          if(item[i]!='')
+            for(let j=i-4;j>=0;j-=4)
+            item[j]==''?(item[j]=item[j+4])&&(item[j+4]=''):-1
+}
 
+function down(){
+  //整理积分块位置
+        for (let i = 11; i >=0; i--)
+          if(item[i]!='')
+            for(let j=i+4;j<16;j+=4)
+            item[j]==''?(item[j]=item[j-4])&&(item[j-4]=''):-1
+            //合并积分块
+        for(let i=15;i>=12;i--)
+          for(let j=0;j<4;j++){
+            if(item[i-j*4]==''||item[i-(j+1)*4]=='')
+            break;
+            if(item[i-j*4]==item[i-(j+1)*4]){
+              item[i-j*4]+=item[i-(j+1)*4]
+              item[i-(j+1)*4]=''
+              j++
+            }
+          }
+//再次整理积分块位置
+          for (let i = 11; i >=0; i--)
+          if(item[i]!='')
+            for(let j=i+4;j<16;j+=4)
+            item[j]==''?(item[j]=item[j-4])&&(item[j-4]=''):-1
+}
+
+function left(){
+  //整理积分块位置
+ for (let i = 2; i <16; i++){
+          if(item[i]!='')
+            for(let j=i-1;j>=Math.floor(i/4)*4;j--)
+            item[j]==''?(item[j]=item[j+1])&&(item[j+1]=''):-1
+          i%4==3?i++:-1
+        }
+
+        //合并积分块
+        for(let i=0;i<16;i+=4)
+          for(let j=0;j<4;j++){
+            if(item[i+j]==''||item[i+j+1]=='')
+            break;
+            if(item[i+j]==item[i+j+1]){
+              item[i+j]+=item[i+j+1]
+              item[i+j+1]=''
+              j++
+            }
+          }
+
+
+//再次整理积分块位置
+         for (let i = 2; i <16; i++){
+          if(item[i]!='')
+            for(let j=i-1;j>=Math.floor(i/4)*4;j--)
+            item[j]==''?(item[j]=item[j+1])&&(item[j+1]=''):-1
+          i%4==3?i++:-1
+        }
+}
+
+function right(){
+  //整理积分块位置
+for (let i = 14; i >0; i--){
+          if(item[i]!='')
+            for(let j=i+1;j<(Math.floor(i/4)+1)*4;j++)
+            item[j]==''?(item[j]=item[j-1])&&(item[j-1]=''):-1
+          i%4==0?i--:-1
+        }
+for(let i=3;i<16;i+=4)
+          for(let j=0;j<4;j++){
+            if(item[i-j]==''||item[i-j-1]=='')
+            break;
+            if(item[i-j]==item[i-j-1]){
+              item[i-j]+=item[i-j-1]
+              item[i-j-1]=''
+              j++
+            }
+          }
+
+//再次整理积分块位置
+        for (let i = 14; i >0; i--){
+          if(item[i]!='')
+            for(let j=i+1;j<(Math.floor(i/4)+1)*4;j++)
+            item[j]==''?(item[j]=item[j-1])&&(item[j-1]=''):-1
+          i%4==0?i--:-1
+        }
 }
 
 
