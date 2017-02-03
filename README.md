@@ -6,9 +6,9 @@
 
 ## 使用方法
 * Step 1 下载微信小程序开发者工具
-- [win64](https://servicewechat.com/wxa-dev-logic/download_redirect?type=x64&from=mpwiki)
-- [win32](https://servicewechat.com/wxa-dev-logic/download_redirect?type=ia32&from=mpwiki)
-- [mac](https://servicewechat.com/wxa-dev-logic/download_redirect?type=darwin&from=mpwiki)
+[win64](https://servicewechat.com/wxa-dev-logic/download_redirect?type=x64&from=mpwiki)
+[win32](https://servicewechat.com/wxa-dev-logic/download_redirect?type=ia32&from=mpwiki)
+[mac](https://servicewechat.com/wxa-dev-logic/download_redirect?type=darwin&from=mpwiki)
 
 * Step 2 下载本项目
 ```
@@ -26,5 +26,5 @@ git clone https://github.com/ShanaMaid/wx-2048.git
 ## 版本更新记录
 v1.0.0 游戏基本功能实现
 
-
-
+## License
+see [MIT LICENSE](./LICENSE) for details
