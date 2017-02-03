@@ -5,8 +5,6 @@ var pos = Object();
 var item = Array();
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
     item: {},
     current: ''
   },
@@ -17,13 +15,11 @@ Page({
     })
   },
   onLoad: function () {
-    console.log('onLoad')
-    var that = this
     //初始化数组
-    for (let i = 0; i < 16; i++) {
+    for (let i = 0; i < 16; i++) 
       item[i] = ''
-    }
-    that.setData({
+      item[Math.round(Math.random()*16)]=2
+    this.setData({
       item: item
     })
   },
@@ -38,13 +34,10 @@ Page({
     end.x = e.changedTouches[0].clientX
     end.y = e.changedTouches[0].clientY
     pos.end = end
-
     var changeX = pos.end.x - pos.start.x
     var changeY = pos.end.y - pos.start.y
-
     if (Math.abs(changeX) < 10 && Math.abs(changeY) < 10)
       return;
-
 
     //判断手势
     var changeXY = Math.abs(changeX) > Math.abs(changeY) ? 'x' : 'y'
@@ -64,7 +57,7 @@ Page({
         left()
         break
       case 'right':
-       right()
+        right()
         break
     }
 
@@ -95,108 +88,105 @@ Page({
 function up() {
   //整理积分块位置
   for (let i = 4; i < item.length; i++)
-          if(item[i]!='')
-            for(let j=i-4;j>=0;j-=4)
-            item[j]==''?(item[j]=item[j+4])&&(item[j+4]=''):-1
-//合并积分块
-        for(let i=0;i<4;i++)
-          for(let j=0;j<4;j++){
-            if(item[i+j*4]==''||item[i+(j+1)*4]=='')
-            break;
-            if(item[i+j*4]==item[i+(j+1)*4]){
-              item[i+j*4]+=item[i+(j+1)*4]
-              item[i+(j+1)*4]=''
-              j++
-            }
-          }
-//再次整理积分块位置
-        for (let i = 4; i < item.length; i++)
-          if(item[i]!='')
-            for(let j=i-4;j>=0;j-=4)
-            item[j]==''?(item[j]=item[j+4])&&(item[j+4]=''):-1
+    if (item[i] != '')
+      for (let j = i - 4; j >= 0; j -= 4)
+        item[j] == '' ? (item[j] = item[j + 4]) && (item[j + 4] = '') : -1
+  //合并积分块
+  for (let i = 0; i < 4; i++)
+    for (let j = 0; j < 4; j++) {
+      if (item[i + j * 4] == '' || item[i + (j + 1) * 4] == '')
+        break;
+      if (item[i + j * 4] == item[i + (j + 1) * 4]) {
+        item[i + j * 4] += item[i + (j + 1) * 4]
+        item[i + (j + 1) * 4] = ''
+        j++
+      }
+    }
+  //再次整理积分块位置
+  for (let i = 4; i < item.length; i++)
+    if (item[i] != '')
+      for (let j = i - 4; j >= 0; j -= 4)
+        item[j] == '' ? (item[j] = item[j + 4]) && (item[j + 4] = '') : -1
 }
 
-function down(){
+function down() {
   //整理积分块位置
-        for (let i = 11; i >=0; i--)
-          if(item[i]!='')
-            for(let j=i+4;j<16;j+=4)
-            item[j]==''?(item[j]=item[j-4])&&(item[j-4]=''):-1
-            //合并积分块
-        for(let i=15;i>=12;i--)
-          for(let j=0;j<4;j++){
-            if(item[i-j*4]==''||item[i-(j+1)*4]=='')
-            break;
-            if(item[i-j*4]==item[i-(j+1)*4]){
-              item[i-j*4]+=item[i-(j+1)*4]
-              item[i-(j+1)*4]=''
-              j++
-            }
-          }
-//再次整理积分块位置
-          for (let i = 11; i >=0; i--)
-          if(item[i]!='')
-            for(let j=i+4;j<16;j+=4)
-            item[j]==''?(item[j]=item[j-4])&&(item[j-4]=''):-1
+  for (let i = 11; i >= 0; i--)
+    if (item[i] != '')
+      for (let j = i + 4; j < 16; j += 4)
+        item[j] == '' ? (item[j] = item[j - 4]) && (item[j - 4] = '') : -1
+  //合并积分块
+  for (let i = 15; i >= 12; i--)
+    for (let j = 0; j < 4; j++) {
+      if (item[i - j * 4] == '' || item[i - (j + 1) * 4] == '')
+        break;
+      if (item[i - j * 4] == item[i - (j + 1) * 4]) {
+        item[i - j * 4] += item[i - (j + 1) * 4]
+        item[i - (j + 1) * 4] = ''
+        j++
+      }
+    }
+  //再次整理积分块位置
+  for (let i = 11; i >= 0; i--)
+    if (item[i] != '')
+      for (let j = i + 4; j < 16; j += 4)
+        item[j] == '' ? (item[j] = item[j - 4]) && (item[j - 4] = '') : -1
 }
 
-function left(){
+function left() {
   //整理积分块位置
- for (let i = 2; i <16; i++){
-          if(item[i]!='')
-            for(let j=i-1;j>=Math.floor(i/4)*4;j--)
-            item[j]==''?(item[j]=item[j+1])&&(item[j+1]=''):-1
-          i%4==3?i++:-1
-        }
-
-        //合并积分块
-        for(let i=0;i<16;i+=4)
-          for(let j=0;j<4;j++){
-            if(item[i+j]==''||item[i+j+1]=='')
-            break;
-            if(item[i+j]==item[i+j+1]){
-              item[i+j]+=item[i+j+1]
-              item[i+j+1]=''
-              j++
-            }
-          }
-
-
-//再次整理积分块位置
-         for (let i = 2; i <16; i++){
-          if(item[i]!='')
-            for(let j=i-1;j>=Math.floor(i/4)*4;j--)
-            item[j]==''?(item[j]=item[j+1])&&(item[j+1]=''):-1
-          i%4==3?i++:-1
-        }
+  for (let i = 2; i < 16; i++) {
+    if (item[i] != '')
+      for (let j = i - 1; j >= Math.floor(i / 4) * 4; j--)
+        item[j] == '' ? (item[j] = item[j + 1]) && (item[j + 1] = '') : -1
+    i % 4 == 3 ? i++ : -1
+  }
+  //合并积分块
+  for (let i = 0; i < 16; i += 4)
+    for (let j = 0; j < 4; j++) {
+      if (item[i + j] == '' || item[i + j + 1] == '')
+        break;
+      if (item[i + j] == item[i + j + 1]) {
+        item[i + j] += item[i + j + 1]
+        item[i + j + 1] = ''
+        j++
+      }
+    }
+  //再次整理积分块位置
+  for (let i = 2; i < 16; i++) {
+    if (item[i] != '')
+      for (let j = i - 1; j >= Math.floor(i / 4) * 4; j--)
+        item[j] == '' ? (item[j] = item[j + 1]) && (item[j + 1] = '') : -1
+    i % 4 == 3 ? i++ : -1
+  }
 }
 
-function right(){
+function right() {
   //整理积分块位置
-for (let i = 14; i >0; i--){
-          if(item[i]!='')
-            for(let j=i+1;j<(Math.floor(i/4)+1)*4;j++)
-            item[j]==''?(item[j]=item[j-1])&&(item[j-1]=''):-1
-          i%4==0?i--:-1
-        }
-for(let i=3;i<16;i+=4)
-          for(let j=0;j<4;j++){
-            if(item[i-j]==''||item[i-j-1]=='')
-            break;
-            if(item[i-j]==item[i-j-1]){
-              item[i-j]+=item[i-j-1]
-              item[i-j-1]=''
-              j++
-            }
-          }
-
-//再次整理积分块位置
-        for (let i = 14; i >0; i--){
-          if(item[i]!='')
-            for(let j=i+1;j<(Math.floor(i/4)+1)*4;j++)
-            item[j]==''?(item[j]=item[j-1])&&(item[j-1]=''):-1
-          i%4==0?i--:-1
-        }
+  for (let i = 14; i >= 0; i--) {
+    if (item[i] != '')
+      for (let j = i + 1; j < (Math.floor(i / 4) + 1) * 4; j++)
+        item[j] == '' ? (item[j] = item[j - 1]) && (item[j - 1] = '') : -1
+    i % 4 == 0 ? i-- : -1
+  }
+  //合并积分块
+  for (let i = 3; i < 16; i += 4)
+    for (let j = 0; j < 4; j++) {
+      if (item[i - j] == '' || item[i - j - 1] == '')
+        break;
+      if (item[i - j] == item[i - j - 1]) {
+        item[i - j] += item[i - j - 1]
+        item[i - j - 1] = ''
+        j++
+      }
+    }
+  //再次整理积分块位置
+  for (let i = 14; i >= 0; i--) {
+    if (item[i] != '')
+      for (let j = i + 1; j < (Math.floor(i / 4) + 1) * 4; j++)
+        item[j] == '' ? (item[j] = item[j - 1]) && (item[j - 1] = '') : -1
+    i % 4 == 0 ? i-- : -1
+  }
 }
 
 

@@ -1,9 +1,17 @@
-page{
+page {
   background-image: url('');
   font-family: microsoft yahei;
 }
 
-.game-box view{
+.restart{
+  text-align: center;
+  font-size: 16px;
+  padding: 5px;
+  background-color: #ede1c7;
+  border-radius: 10px;
+}
+
+.game-box view {
   float: left;
   width: 25%;
   text-align: center;
@@ -15,7 +23,7 @@ page{
   font-size: 20px;
 }
 
-.game-box{
+.game-box {
   border: 5px solid #b4a597;
   font-size: 0;
   font-weight: bold;
@@ -23,11 +31,11 @@ page{
   box-sizing: border-box;
 }
 
-.score{
+.score {
   margin: 10px 0;
 }
 
-.current,.top{
+.current, .top {
   display: inline-block;
   border-radius: 5px;
   width: 50%;
@@ -39,50 +47,51 @@ page{
   background-color: #cec3b5;
 }
 
-.item{
+.item {
   background-color: #edc50b;
 }
 
-.item2{
-  background-color:#f0e3db;
+.item2 {
+  background-color: #f0e3db;
 }
 
-.item4{
-  background-color:#ede1c7;
+.item4 {
+  background-color: #ede1c7;
 }
 
-.item8{
-  background-color:#f2b177;
+.item8 {
+  background-color: #f2b177;
 }
 
-.item16{
-  background-color:#f59563;
+.item16 {
+  background-color: #f59563;
 }
 
-.item32{
-  background-color:#fa7a5d;
+.item32 {
+  background-color: #fa7a5d;
 }
 
-.item64{
-  background-color:#ee5b3f ;
+.item64 {
+  background-color: #ee5b3f;
 }
 
-.item128{
-  background-color:#edce71;
+.item128 {
+  background-color: #edce71;
 }
 
-.item256{
-  background-color:#f6d04e ;
+.item256 {
+  background-color: #f6d04e;
 }
 
-.item512{
-  background-color:#fefcc0;
+.item512 {
+  background-color: #fefcc0;
 }
 
-.item1024{
-  background-color:#e1ae1a;
+.item1024 {
+  background-color: #e1ae1a;
 }
 
-.item2048{
-  background-color:#edc50b ;
+.item2048 {
+  background-color: #edc50b;
 }
+
