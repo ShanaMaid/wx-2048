@@ -1,12 +1,15 @@
 //index.js
 //获取应用实例
 var app = getApp()
-var pos = Object();
-var item = Array();
+var pos = Object()
+var item = Array()
+var current = 0
+var top = 0
 Page({
   data: {
     item: {},
-    current: ''
+    current: current,
+    top: 0
   },
   //事件处理函数
   bindViewTap: function () {
@@ -16,12 +19,21 @@ Page({
   },
   onLoad: function () {
     //初始化数组
-    for (let i = 0; i < 16; i++) 
+    for (let i = 0; i < 16; i++)
       item[i] = ''
-      item[Math.round(Math.random()*16)]=2
+    item[Math.round(Math.random() * 16)] = 2
+
+    try {
+      top = wx.getStorageSync('top')
+    } catch (e) {
+      top = 0
+    }
+
     this.setData({
-      item: item
+      item: item,
+      top: top
     })
+
   },
   scrollstart: function (e) {
     var start = Object();
@@ -62,7 +74,7 @@ Page({
     }
 
     //计算当前分数
-    var current = 0;
+    current = 0;
     for (let i = 0; i < item.length; i++)
       if (!isNaN(parseInt(item[i])))
         current += item[i]
@@ -77,10 +89,16 @@ Page({
       }
     }
 
+    top = top > current ? top : (function () {
+      wx.setStorageSync('top', current)
+      return current
+    })()
+
     //刷新视图数据
     this.setData({
       item: item,
-      current: current
+      current: current,
+      top: top
     })
   },
 })

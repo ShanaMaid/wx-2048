@@ -4,7 +4,7 @@
 <view class="restart" bindtap="onLoad">再来一局</view>
 <view class="score">
   <view class="current">当前分数：{{current}}</view>
-  <view class="top">最高分数:</view>
+  <view class="top">最高分数:{{top}}</view>
 </view>
 <scroll-view class="game-box" bindtouchstart="scrollstart" bindtouchend="scrollend">
   <view class="item{{item[0]}}">{{item[0]}}</view>

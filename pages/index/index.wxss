@@ -1,5 +1,4 @@
 page {
-  background-image: url('');
   font-family: microsoft yahei;
 }
 
