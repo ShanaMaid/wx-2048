@@ -24,8 +24,8 @@ git clone https://github.com/ShanaMaid/wx-2048.git
 - [ ] 算法优化
 
 ## 版本更新记录
-v1.0.1 最高分数本地存储
-v1.0.0 游戏基本功能实现
+v1.0.1 最高分数本地存储 
+v1.0.0 游戏基本功能实现 
 
 ## License
 see [MIT LICENSE](./LICENSE) for details
